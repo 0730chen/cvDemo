@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#html {
+    word-break: break-all;
+}
+
+#div1 {
+    position: fixed;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+
+#div1::before {
+    content: "";
+    display: block;
+}
+
+#div1::after {
+    content: "";
+    display: block;
+}
+
+
+/*媒体查询适配手机端，根据屏幕大小适配*/
+
+@media (max-width: 500px) {
+    #html {
+        height: 50vh;
+        overflow: auto;
+    }
+    /*再外层套一个div设置高度*/
+    #wrapdemo {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+    }
+    #div1 {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
