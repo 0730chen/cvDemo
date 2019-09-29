@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Canvas画板</title>
+    <button class="clear">清除</button>
 </head>
 <style>* {
         margin: 0;
@@ -88,4 +89,9 @@ if (touch) {
     console.log("up");
     painting = false;
   };
-}</script>
+}
+
+var clear = document.getElementsByClassName('clear');
+clear[0].addEventListener('click', function (e) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});</script>
