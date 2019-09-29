@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Canvas画板</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <div class="drawing">
+        <canvas id="canvas" width="300" height="300"></canvas>
+    </div>
+</body>
+
+</html>
+<script>
+    let canvas = document.getElementById("canvas");
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+    let ctx = canvas.getContext("2d");
+    console.log(ctx);
+    let painting = false;
+    ctx.fillStyle = "black";
+    ctx.strokeStyle = "none";
+    let touch = "ontouchstart" in document.documentElement; //判断是否支持手机
+    console.log(touch);
+    canvas.onmousedown = () => {
+            // console.log('down')
+            painting = true
+        }
+        //手机canvas的宽高获取会改变需要重新获取
+    if (touch) {
+        canvas.ontouchstart = e => {
+            painting = true
+        }
+        canvas.ontouchmove = e => {
+            //重新获取X,Y
+            e.clientX = e.touches[0].clientX
+            e.clientY = e.touches[0].clientY
+            if (painting === true) {
+                console.log('开始触摸')
+                console.log(ctx)
+                ctx.beginPath();
+                ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+            } else {
+                console.log('什么都不做')
+            }
+        }
+        canvas.ontouchend = e => {
+            console.log("up");
+            painting = false;
+        }
+
+    } else {
+        canvas.onmousedown = () => {
+            console.log('down')
+            painting = true
+        }
+        canvas.onmousemove = e => {
+            console.log("over");
+            console.log(painting);
+            if (painting === true) {
+                ctx.beginPath();
+                ctx.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+            } else {
+                console.log("什么都不做");
+            }
+        };
+        canvas.onmouseup = () => {
+            console.log("up");
+            painting = false;
+        };
+    }
+</script>
