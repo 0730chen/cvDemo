@@ -1,14 +1,22 @@
-let num = 0
-let html = document.getElementById('html')
-let style = document.getElementById('css')
+let num = 0;
+let html = document.getElementById("html");
+let style = document.getElementById("css");
 let string = `/*我是一名新人,请多多关照
-我换了一个行
+接下来我要展示我的CSS功底
 新的一行我是一个空格
-我的前面是一个空格*/
-#html{
-    color : red;
+我的前面是一个空格
+清除样式，选择盒模型
+*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-/*创建一个*/
+/*使字体变一个颜色*/
+#html{
+    color:red;
+}
+/*画一个太极八卦图*/
 #div1{
     width:200px;
     height:200px;
@@ -17,6 +25,7 @@ let string = `/*我是一名新人,请多多关照
     box-shadow:0 0 3px rgba(0,0,0,0.5);
     border:none;
     background: linear-gradient(90deg, rgba(2,1,18,1) 50%, rgba(255,255,255,1) 50%);
+    animation:Rotating 3s linear 1s infinite reverse both running;
 }
 /*创建两个灵珠*/
 #div1::before{
@@ -41,8 +50,17 @@ let string = `/*我是一名新人,请多多关照
     background: black;
     background: radial-gradient(circle, rgba(254,253,253,1) 12%, rgba(0,0,0,1) 12%);
    }
+   /*加上一个旋转动画*/
+   @keyframes Rotating{
+       0%{
+          transform: rotate(0deg);
+       }
+       100%{
+          transform: rotate(360deg);
+       }
+   }
 `;
-let string2 = ""
+let string2 = "";
 
 function setp() {
     setTimeout(() => {
@@ -61,24 +79,24 @@ function setp() {
         // }
         //使用空字符串，每次遇到换行时拼接一个<br>给字符串
         //vscode中一个tab是	->箭头标志，而空格是一个点
-        if (string[num] === '\n') {
-            string2 += "<br>"
-        } else if (string[num] === ' ') {
+        if (string[num] === "\n") {
+            string2 += "<br>";
+        } else if (string[num] === " ") {
             //处理缩进
-            string2 += "&nbsp;"
+            string2 += "&nbsp;";
         } else {
-            string2 += string[num]
+            string2 += string[num];
         }
-        html.innerHTML = string2
-            //css代码直接将添加注释在字符串中，css会自动忽略注释的内容
-        style.innerHTML = string.substring(0, num)
+        html.innerHTML = string2;
+        //css代码直接将添加注释在字符串中，css会自动忽略注释的内容
+        style.innerHTML = string.substring(0, num);
         window.scrollTo(0, 99999);
-        html.scrollTo(0, 10000) //为了适配手机向下滚动
-            //先给HTML赋值然后在判断num的值，
+        html.scrollTo(0, 10000); //为了适配手机向下滚动
+        //先给HTML赋值然后在判断num的值，
         if (num < string.length - 1) {
-            num += 1
-            setp()
+            num += 1;
+            setp();
         }
     }, 0);
 }
-setp()
+setp();

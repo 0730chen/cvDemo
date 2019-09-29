@@ -119,9 +119,9 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"main.js":[function(require,module,exports) {
 var num = 0;
-var html = document.getElementById('html');
-var style = document.getElementById('css');
-var string = "/*\u6211\u662F\u4E00\u540D\u65B0\u4EBA,\u8BF7\u591A\u591A\u5173\u7167\n\u6211\u6362\u4E86\u4E00\u4E2A\u884C\n\u65B0\u7684\u4E00\u884C\u6211\u662F\u4E00\u4E2A\u7A7A\u683C\n\u6211\u7684\u524D\u9762\u662F\u4E00\u4E2A\u7A7A\u683C*/\n#html{\n    color : red;\n}\n/*\u521B\u5EFA\u4E00\u4E2A*/\n#div1{\n    width:200px;\n    height:200px;\n    border:1px solid black;\n    border-radius:50%;\n    box-shadow:0 0 3px rgba(0,0,0,0.5);\n    border:none;\n    background: linear-gradient(90deg, rgba(2,1,18,1) 50%, rgba(255,255,255,1) 50%);\n}\n/*\u521B\u5EFA\u4E24\u4E2A\u7075\u73E0*/\n#div1::before{\n    position:absolute;\n    width:100px;\n    height:100px;\n    border-radius:50%;\n    left:50%;\n    top:0;\n    transform:translate(-50%);\n    background:#fff;\n    background: radial-gradient(circle, rgba(0,0,0,1) 12%, rgba(254,253,253,1) 12%);\n}\n#div1::after{\n    position:absolute;\n    width:100px;\n    height:100px;\n    border-radius:50%;\n    left:50%;\n    bottom:0;\n    transform:translate(-50%);\n    background: black;\n    background: radial-gradient(circle, rgba(254,253,253,1) 12%, rgba(0,0,0,1) 12%);\n   }\n";
+var html = document.getElementById("html");
+var style = document.getElementById("css");
+var string = "/*\u6211\u662F\u4E00\u540D\u65B0\u4EBA,\u8BF7\u591A\u591A\u5173\u7167\n\u63A5\u4E0B\u6765\u6211\u8981\u5C55\u793A\u6211\u7684CSS\u529F\u5E95\n\u65B0\u7684\u4E00\u884C\u6211\u662F\u4E00\u4E2A\u7A7A\u683C\n\u6211\u7684\u524D\u9762\u662F\u4E00\u4E2A\u7A7A\u683C\n\u6E05\u9664\u6837\u5F0F\uFF0C\u9009\u62E9\u76D2\u6A21\u578B\n*/\n*{\n    margin:0;\n    padding:0;\n    box-sizing:border-box;\n}\n/*\u4F7F\u5B57\u4F53\u53D8\u4E00\u4E2A\u989C\u8272*/\n#html{\n    color:red;\n}\n/*\u753B\u4E00\u4E2A\u592A\u6781\u516B\u5366\u56FE*/\n#div1{\n    width:200px;\n    height:200px;\n    border:1px solid black;\n    border-radius:50%;\n    box-shadow:0 0 3px rgba(0,0,0,0.5);\n    border:none;\n    background: linear-gradient(90deg, rgba(2,1,18,1) 50%, rgba(255,255,255,1) 50%);\n    animation:Rotating 3s linear 1s infinite reverse both running;\n}\n/*\u521B\u5EFA\u4E24\u4E2A\u7075\u73E0*/\n#div1::before{\n    position:absolute;\n    width:100px;\n    height:100px;\n    border-radius:50%;\n    left:50%;\n    top:0;\n    transform:translate(-50%);\n    background:#fff;\n    background: radial-gradient(circle, rgba(0,0,0,1) 12%, rgba(254,253,253,1) 12%);\n}\n#div1::after{\n    position:absolute;\n    width:100px;\n    height:100px;\n    border-radius:50%;\n    left:50%;\n    bottom:0;\n    transform:translate(-50%);\n    background: black;\n    background: radial-gradient(circle, rgba(254,253,253,1) 12%, rgba(0,0,0,1) 12%);\n   }\n   /*\u52A0\u4E0A\u4E00\u4E2A\u65CB\u8F6C\u52A8\u753B*/\n   @keyframes Rotating{\n       0%{\n          transform: rotate(0deg);\n       }\n       100%{\n          transform: rotate(360deg);\n       }\n   }\n";
 var string2 = "";
 
 function setp() {
@@ -141,9 +141,9 @@ function setp() {
     // }
     //使用空字符串，每次遇到换行时拼接一个<br>给字符串
     //vscode中一个tab是	->箭头标志，而空格是一个点
-    if (string[num] === '\n') {
+    if (string[num] === "\n") {
       string2 += "<br>";
-    } else if (string[num] === ' ') {
+    } else if (string[num] === " ") {
       //处理缩进
       string2 += "&nbsp;";
     } else {
@@ -193,7 +193,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52804" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51040" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
