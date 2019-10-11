@@ -1,7 +1,7 @@
 {
-  "name": "cv",
+  "name": "node-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "这是一段会动的JS代码",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +10,14 @@
   "license": "ISC",
   "devDependencies": {
     "cssnano": "^4.1.10"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0730chen/cvDemo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/0730chen/cvDemo/issues"
+  },
+  "homepage": "https://github.com/0730chen/cvDemo#readme"
 }
